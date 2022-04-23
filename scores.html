@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+
+    <title>Code-quiz</title>
+  </head>
+  <body>
+    <!-- the header -->
+    <header>
+      <!-- nav-bar -->
+      <nav>
+        <a href="index.html" class="nav-links">Home</a>
+        <a href="score.html" class="nav-links">High Score</a>
+      </nav>
+    </header>
+    <!-- the main of the page  -->
+    <main>
+      <section class="quiz" id="quiz">
+        <h1 class="title">Quiz Challenge!</h1>
+        <p>Test your knowledge</p>
+        <div class="start-quiz">
+          <button class="start-btn" id="start-btn">Start</button>
+        </div>
+      </section>
+      <section class="timer-quiz" id="timer-quiz">
+        <div>
+          <p>Time remaining :</p>
+          <span id="timer">60</span>
+        </div>
+      </section>
+      <section class="question-section" id="question-section">
+        <h2>Questions???</h2>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </section>
+      <section class="confirm-section" id="confirm-section">
+        <p>Correct Answer!</p>
+      </section>
+      <section>
+        <form>
+          <div>
+            <div>
+              <input type="text" />
+            </div>
+            <div>Score</div>
+            <div>
+              <submit>Submit</submit>
+            </div>
+          </div>
+          <div></div>
+        </form>
+      </section>
+    </main>
+    <footer>$</footer>
+
+    <script src="./js/app.js"></script>
+  </body>
+</html>
