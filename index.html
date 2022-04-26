@@ -4,12 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-      rel="stylesheet"
-    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -17,28 +11,73 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
-    <title>Start Game</title>
+    <title>Start quiz</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="index.html" class="nav-links">Home</a>
-        <a href="score.html" class="nav-links">High Scores</a>
+    <!-- the header -->
+    <header class="header" id="quiz">
+      <!-- nav-bar -->
+      <nav class="flex-container" id="flex-container">
+        <a href="./index.html" class="nav-links">Home</a>
+        <a href="./scores.html" class="nav-links">High Score</a>
       </nav>
     </header>
+    <!-- the main of the page  -->
     <main>
-      <section>
-        <div class="container">
-          <div id="home" class="flex-column flex-center">
-            <h1>Are you Ready?</h1>
-            <a href="./scores.html" id="highscore-btn" class="btn"
-              >High Scores<i class="fa-solid fa-gamepad-modern"></i
-            ></a>
-          </div>
+      <section class="start-quiz" id="quiz-a">
+        <h1 class="title">Quiz Challenge!</h1>
+        <!-- start button -->
+        <div class="button-quiz">
+          <button id="start-btn">Start Quiz</button>
         </div>
       </section>
-      <footer></footer>
+      <!-- the question section -->
+      <section class="timer-quiz-question" id="quiz-section">
+        <!-- timer section -->
+        <section class="timer-section" id="timer-section">
+          <div>
+            <p>Time remaining : <span id="timer">60 seconds</span></p>
+          </div>
+        </section>
+        <!-- the messages displayed at the start of the quiz -->
+        <h2 class="banner">Take the challenge !</h2>
+
+        <!-- the list of the questions -->
+        <ul class="the-list" id="list">
+          <li class="list-items" id="list-items">1</li>
+          <li class="list-items" id="list-items">2</li>
+          <li class="list-items" id="list-items">3</li>
+          <li class="list-items" id="list-items">4</li>
+          <li class="list-items" id="list-items">5</li>
+        </ul>
+      </section>
+
+      <!-- the confirmation message -->
+      <section class="confirm-section" id="confirm-section">
+        <p>Correct Answer!</p>
+      </section>
+      <!-- the section for the form -->
+      <section class="form-section" id="form-section">
+        <form>
+          <div class="form-items">
+            <input type="text" name="full-name" placeholder="Enter your name" />
+            <!-- submit button -->
+            <div class="btn" id="submit-score">
+              <button button type="submit">Submit your Score</button>
+            </div>
+          </div>
+        </form>
+      </section>
     </main>
+
+    <footer>Find me on GitHub</footer>
+    <script src="./js/app.js"></script>
   </body>
 </html>
