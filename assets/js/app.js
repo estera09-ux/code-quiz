@@ -1,11 +1,13 @@
 console.log("hey");
 
 const startQuiz = document.getElementById("start");
+// target the button
 const buttonStart = document.getElementById("start-btn");
+// target the timer span
+const timerSection = document.getElementById("timer-section");
 const questionLine = document.querySelector(".banner");
 const sectionQuestion = document.getElementById("question-section");
 const listAnswer = document.getElementById("list");
-const timerSection = document.getElementById("timer");
 
 //current question  index
 let questionIndex = 0;
@@ -88,3 +90,27 @@ const renderQuestions = () => {
 //   sectionQuestion.style.display = "block";
 //   timeLeft = setInterval(setTimer, 1000);
 // });
+
+let timer = 100;
+
+const handleStartButtonClick = () => {
+  const updateTimer = () => {
+    // increment timer by 1
+    timer -= 1;
+    //set to new timer value
+    // timerSpan.textContent = timer;
+    //check if timer is equal to 10
+    if (timer === 0) {
+      clearInterval(timerId);
+    }
+  };
+  const timerId = setInterval(updateTimer, 1000);
+  console.log(timerId);
+};
+
+// addEventListener function
+buttonStart.addEventListener("click", handleStartButtonClick);
+
+document.getElementById("start-btn").addEventListener("click", () => {
+  timer -= 5;
+});
