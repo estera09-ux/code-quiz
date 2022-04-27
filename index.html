@@ -17,7 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./assets/js/css/styles.css" />
     <title>Start quiz</title>
   </head>
   <body>
@@ -31,7 +31,7 @@
     </header>
     <!-- the main of the page  -->
     <main>
-      <section class="start-quiz" id="quiz-a">
+      <section class="start-quiz  section" id="quiz-a">
         <h1 class="title">Quiz Challenge!</h1>
         <!-- start button -->
         <div class="button-quiz">
@@ -39,9 +39,9 @@
         </div>
       </section>
       <!-- the question section -->
-      <section class="timer-quiz-question" id="quiz-section">
+      <section class="timer-quiz-question  section" id="quiz-section">
         <!-- timer section -->
-        <section class="timer-section" id="timer-section">
+        <section class="timer-section section" id="timer-section">
           <div>
             <p>Time remaining : <span id="timer">60 seconds</span></p>
           </div>
@@ -60,17 +60,23 @@
       </section>
 
       <!-- the confirmation message -->
-      <section class="confirm-section" id="confirm-section">
+      <section class="confirm-section section" id="confirm-section">
         <p>Correct Answer!</p>
       </section>
       <!-- the section for the form -->
-      <section class="form-section" id="form-section">
+      <section class="form-section section" id="form-section">
         <form>
           <div class="form-items">
-            <input type="text" name="full-name" placeholder="Enter your name" />
+            <input
+              name="full-name"
+              class="form-input"
+              type="text"
+              placeholder="Enter your name"
+            />
+          </div>
             <!-- submit button -->
-            <div class="btn" id="submit-score">
-              <button button type="submit">Submit your Score</button>
+            <div class="submit-score">
+              <button class="btn-submit" type="submit">Submit your Score</button>
             </div>
           </div>
         </form>
@@ -78,6 +84,6 @@
     </main>
 
     <footer>Find me on GitHub</footer>
-    <script src="./js/app.js"></script>
+    <script src="./assets/js/app.js"></script>
   </body>
 </html>
