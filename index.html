@@ -22,33 +22,37 @@
   </head>
   <body>
     <!-- the header -->
-    <header class="header" id="quiz">
+    <header class="header section" id="quiz">
       <!-- nav-bar -->
-      <nav class="flex-container" id="flex-container">
-        <a href="./index.html" class="nav-links">Home</a>
-        <a href="./scores.html" class="nav-links">High Score</a>
+      <nav class="flex-container section" id="flex-container">
+        <a href="./index.html" class="nav-links anchor">Home</a>
+        <a href="./scores.html" class="nav-links anchor">High Score</a>
       </nav>
     </header>
+
     <!-- the main of the page  -->
     <main>
       <section class="start-quiz  section" id="quiz-a">
         <h1 class="title">Quiz Challenge!</h1>
+
         <!-- start button -->
         <div class="button-quiz">
           <button id="start-btn">Start Quiz</button>
         </div>
       </section>
       <!-- the question section -->
-      <section class="timer-quiz-question  section" id="quiz-section">
+     
         <!-- timer section -->
-        <section class="timer-section section" id="timer-section">
+       
+        <section class="timer-section section-banner" id="timer-section">
           <div>
             <p>Time remaining : <span id="timer">60 seconds</span></p>
           </div>
-        </section>
+          </section>
+        <!-- question section -->
+        <section class="quiz-question  section" id="question-section"></section>
         <!-- the messages displayed at the start of the quiz -->
         <h2 class="banner">Take the challenge !</h2>
-
         <!-- the list of the questions -->
         <ul class="the-list" id="list">
           <li class="list-items" id="list-items">1</li>
@@ -58,13 +62,10 @@
           <li class="list-items" id="list-items">5</li>
         </ul>
       </section>
+    
 
-      <!-- the confirmation message -->
-      <section class="confirm-section section" id="confirm-section">
-        <p>Correct Answer!</p>
-      </section>
-      <!-- the section for the form -->
-      <section class="form-section section" id="form-section">
+      <!-- my form  -->
+      <section class="form-section section-c" id="form-section">
         <form>
           <div class="form-items">
             <input
@@ -83,7 +84,7 @@
       </section>
     </main>
 
-    <footer>Find me on GitHub</footer>
+   
     <script src="./assets/js/app.js"></script>
   </body>
 </html>

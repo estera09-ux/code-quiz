@@ -24,15 +24,47 @@ body {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-h2,
-h1 {
-  font-family: "Press Start 2P", cursive;
-  margin: 20px;
-  padding: 20px;
+.timer-quiz-section {
+  text-align: center;
 }
 
-.section {
-  display: block;
-  flex-wrap: wrap;
+.header,
+h2,
+h1 {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.start-quiz,
+h1 {
+  text-align: center;
+  font-size: 20px;
+}
+
+.flex-container,
+.flex-items {
+  text-decoration: none;
+}
+.section {
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: row;
+  justify-content: center;
+}
+
+.section-c {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 20px 10px;
+}
+button {
+  padding: 10px;
+  display: inline-block;
+  border: none;
+  height: 30px;
+  margin: auto;
 }
