@@ -1,8 +1,71 @@
 // target the timer span
-// const timerSection = document.getElementById("timer-section");
-// const questionLine = document.querySelector(".banner");
-// const sectionQuestion = document.getElementById("question-section");
-// const listAnswer = document.getElementById("list");
+const timerSection = document.getElementById("timer-section");
+const questionLine = document.querySelector(".banner");
+const sectionQuestion = document.getElementById("question-section");
+const listAnswer = document.getElementById("list");
+const time = document.getElementById("timer");
+
+let timerSpan = 100;
+
+const handleStartButtonClick = () => {
+  const updateTimer = () => {
+    timerSpan -= 1;
+    // increment timer by 1
+    time.textContent = timerSpan;
+    //set to new timer value
+    // timerSpan.textContent = timer;
+    //check if timer is equal to 10
+    if (timerSpan === 0) {
+      clearInterval(timerId);
+    }
+  };
+  const timerId = setInterval(updateTimer, 1000);
+  console.log(timerId);
+};
+
+// addEventListener function
+time.addEventListener("click", handleStartButtonClick);
+
+document.getElementById("start-btn").addEventListener("click", () => {
+  timerSpan -= 5;
+});
+
+// const startQuiz = document.getElementById("start");
+// target the button
+const buttonStart = document.getElementById("start-btn");
+const main = document.getElementById("main");
+
+// add click event listener
+const createList = () => {
+  //   create section
+  const section = document.createElement("section");
+  // add class attribute
+  section.setAttribute("class", "quiz-question");
+  // create h2
+  const h2 = document.createElement("h2");
+  //create ul
+  const ul = document.createElement("ul");
+  // for each  question create li append to ul
+  for (let i = 0; i < questions.length; i += 1) {
+    // create li
+    const li = document.createElement("li");
+    // create li to ul
+    ul.appendChild(li);
+  }
+  //append h2 and ul to section
+  section.append(h2, ul);
+  // append section to main
+  main.append(section);
+};
+buttonStart.addEventListener("click", createList);
+console.log(buttonStart);
+
+//current question  index
+let questionIndex = 0;
+
+// store the answers
+const answers = [];
+
 // declared my array questions
 const questions = [
   {
@@ -58,42 +121,6 @@ const questions = [
   },
 ];
 
-// const startQuiz = document.getElementById("start");
-// target the button
-const buttonStart = document.getElementById("start-btn");
-const main = document.getElementById("main");
-
-// add click event listener
-const createList = () => {
-  //   create section
-  const section = document.createElement("section");
-  // add class attribute
-  section.setAttribute("class", "quiz-question");
-  // create h2
-  const h2 = document.createElement("h2");
-  //create ul
-  const ul = document.createElement("ul");
-  // for each  question create li append to ul
-  for (let i = 0; i < questions.length; i += 1) {
-    // create li
-    const li = document.createElement("li");
-    // create li to ul
-    ul.appendChild(li);
-  }
-  //append h2 and ul to section
-  section.append(h2, ul);
-  // append section to main
-  main.append(section);
-};
-buttonStart.addEventListener("click", createList);
-console.log(buttonStart);
-
-//current question  index
-let questionIndex = 0;
-
-// store the answers
-const answers = [];
-
 // const renderQuestions = () => {
 //   console.log("questions-section");
 //   //create section
@@ -107,34 +134,3 @@ const answers = [];
 //   // create the ul list
 //   const ul = document.createElementById("list");
 // };
-
-// buttonStart.addEventListener("click", function () {
-//   startQuiz.remove();
-//   questionLine.remove();
-//   sectionQuestion.style.display = "block";
-//   timeLeft = setInterval(setTimer, 1000);
-// });
-
-let timer = 100;
-
-const handleStartButtonClick = () => {
-  const updateTimer = () => {
-    // increment timer by 1
-    timer -= 1;
-    //set to new timer value
-    // timerSpan.textContent = timer;
-    //check if timer is equal to 10
-    if (timer === 0) {
-      clearInterval(timerId);
-    }
-  };
-  const timerId = setInterval(updateTimer, 1000);
-  console.log(timerId);
-};
-
-// addEventListener function
-buttonStart.addEventListener("click", handleStartButtonClick);
-
-document.getElementById("start-btn").addEventListener("click", () => {
-  timer -= 5;
-});
