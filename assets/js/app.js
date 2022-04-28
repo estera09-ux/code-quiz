@@ -1,20 +1,8 @@
-console.log("hey");
-
-const startQuiz = document.getElementById("start");
-// target the button
-const buttonStart = document.getElementById("start-btn");
 // target the timer span
-const timerSection = document.getElementById("timer-section");
-const questionLine = document.querySelector(".banner");
-const sectionQuestion = document.getElementById("question-section");
-const listAnswer = document.getElementById("list");
-
-//current question  index
-let questionIndex = 0;
-
-// store the answers
-const answers = [];
-
+// const timerSection = document.getElementById("timer-section");
+// const questionLine = document.querySelector(".banner");
+// const sectionQuestion = document.getElementById("question-section");
+// const listAnswer = document.getElementById("list");
 // declared my array questions
 const questions = [
   {
@@ -70,19 +58,55 @@ const questions = [
   },
 ];
 
-const renderQuestions = () => {
-  console.log("questions-section");
-  //create section
-  const section = document.createElementById("quiz-question");
+// const startQuiz = document.getElementById("start");
+// target the button
+const buttonStart = document.getElementById("start-btn");
+const main = document.getElementById("main");
+
+// add click event listener
+const createList = () => {
+  //   create section
+  const section = document.createElement("section");
+  // add class attribute
   section.setAttribute("class", "quiz-question");
-  //create h2 element
-  const h2 = document.createElementById("banner");
-  section.setAttribute("class", "banner");
-  // this needs to change as it is hardcoded
-  h2.textContent = "Take the challenge !";
-  // create the ul list
-  const ul = document.createElementById("list");
+  // create h2
+  const h2 = document.createElement("h2");
+  //create ul
+  const ul = document.createElement("ul");
+  // for each  question create li append to ul
+  for (let i = 0; i < questions.length; i += 1) {
+    // create li
+    const li = document.createElement("li");
+    // create li to ul
+    ul.appendChild(li);
+  }
+  //append h2 and ul to section
+  section.append(h2, ul);
+  // append section to main
+  main.append(section);
 };
+buttonStart.addEventListener("click", createList);
+console.log(buttonStart);
+
+//current question  index
+let questionIndex = 0;
+
+// store the answers
+const answers = [];
+
+// const renderQuestions = () => {
+//   console.log("questions-section");
+//   //create section
+//   const section = document.createElementById("quiz-question");
+//   section.setAttribute("class", "quiz-question");
+//   //create h2 element
+//   const h2 = document.createElementById("banner");
+//   section.setAttribute("class", "banner");
+//   // this needs to change as it is hardcoded
+//   h2.textContent = "Take the challenge !";
+//   // create the ul list
+//   const ul = document.createElementById("list");
+// };
 
 // buttonStart.addEventListener("click", function () {
 //   startQuiz.remove();
