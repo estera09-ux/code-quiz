@@ -37,49 +37,17 @@ document.getElementById("span-timer").addEventListener("click", () => {
   time -= 5;
 });
 
-// addEventListener function
-// time.addEventListener("click", handleStartButtonClick);
-
-// document.getElementById("start-btn").addEventListener("click", () => {
-// timerSpan -= 5;
-// });
-//
-
-const startQuiz = document.getElementById("start");
-// target the button
-const buttonStart = document.getElementById("start-btn");
-const main = document.getElementById("main");
-
-// add click event listener
-const createList = () => {
-  //   create section
-  const section = document.createElement("section");
-  // add class attribute
-  section.setAttribute("class", "quiz-question");
-  // create h2
-  const h2 = document.createElement("h2");
-  //create ul
-  const ul = document.createElement("ul");
-  // for each  question create li append to ul
-  for (let i = 0; i < questions.length; i += 1) {
-    // create li
-    const li = document.createElement("li");
-    // create li to ul
-    ul.appendChild(li);
-  }
-  //append h2 and ul to section
-  section.append(h2, ul);
-  // append section to main
-  main.append(section);
-};
-buttonStart.addEventListener("click", createList);
-console.log(buttonStart);
-
 //current question  index
 let questionIndex = 0;
 
 // store the answers
-const answers = [];
+const answers = [
+  "Hyper Text Markup Language",
+  "Cascading Style Sheet",
+  "Hypertext Preprocessor",
+  "Structured Query Language",
+  "eXtensible Markup Language",
+];
 
 // declared my array questions
 const questions = [
@@ -91,7 +59,7 @@ const questions = [
       "Hyper Text Multiple Language",
       "Hyper Tool Multi Language",
     ],
-    answer: "Hyper Text Markup Language",
+    answer: answers[1],
   },
   {
     question: "What does CSS stand for?",
@@ -102,7 +70,7 @@ const questions = [
       "Computer Style Sheet",
       "Cascading Style Sheet",
     ],
-    answer: "Cascading Style Sheet",
+    answer: answers[3],
   },
   {
     question: "What does PHP stand for?",
@@ -112,7 +80,7 @@ const questions = [
       "Hypertext Preprogramming",
       "Hometext Preprocessor",
     ],
-    answer: "Hypertext Preprocessor",
+    answer: answers[0],
   },
   {
     question: "What does SQL stand for?",
@@ -122,7 +90,7 @@ const questions = [
       "Statement Question Language",
       "Structured Query Language",
     ],
-    answer: "Structured Query Language",
+    answer: answers[3],
   },
   {
     question: "What does XML stand for?",
@@ -132,9 +100,54 @@ const questions = [
       "eXTra Multi-Program Language",
       "eXamine Multiple Language",
     ],
-    answer: "eXtensible Markup Language",
+    answer: answers[0],
   },
 ];
+
+// target the main
+const startQuiz = document.getElementById("main");
+// target the button
+
+// add click event listener
+const handleChoice = (event) => {
+  const currentTarget = event.currentTarget;
+  //get target
+  const target = event.target;
+
+  if (target.tagName === "LI") {
+    // what the user has clicked on
+    const value = target.getAttribute("data-value");
+    console.log(value);
+    // get the answer
+    const question = questions[questionIndex].text;
+    console.log(question);
+    // answer that contains the questions and answer
+    const answers = {
+      questions,
+      value,
+    };
+    // store the answers
+    storeInLS("answerResults", answers);
+
+    // remove the  questions
+    removeQuestions();
+    // check for the click
+    if (questionIndex < questions.length - 1) {
+      questionIndex += 1;
+      renderQuestions();
+    } else {
+      renderForm();
+    }
+  }
+
+  // }
+  //append h2 and ul to section
+  section.append(h2, ul);
+  // append section to main
+  main.append(section);
+};
+buttonStart.addEventListener("click", createList);
+console.log(buttonStart);
 
 // const renderQuestions = () => {
 //   console.log("questions-section");
