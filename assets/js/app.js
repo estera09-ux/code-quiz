@@ -139,26 +139,36 @@ const handleChoice = (event) => {
       renderForm();
     }
   }
-
-  // }
-  //append h2 and ul to section
-  section.append(h2, ul);
-  // append section to main
-  main.append(section);
 };
-buttonStart.addEventListener("click", createList);
-console.log(buttonStart);
+//
 
-// const renderQuestions = () => {
-//   console.log("questions-section");
-//   //create section
-//   const section = document.createElementById("quiz-question");
-//   section.setAttribute("class", "quiz-question");
-//   //create h2 element
-//   const h2 = document.createElementById("banner");
-//   section.setAttribute("class", "banner");
-//   // this needs to change as it is hardcoded
-//   h2.textContent = "Take the challenge !";
-//   // create the ul list
-//   const ul = document.createElementById("list");
-// };
+const handleForm = (event) => {
+  event.preventDefault();
+
+  // input name
+  const name = document.getElementById("form-section").value;
+
+  //validation
+  if (name) {
+    const theResults = JSON.parse(localStorage.getItem("theResults"));
+    // object with the name
+    const result = {
+      name,
+      theResults,
+    };
+
+    // add them back into the ls
+    storeInLS("theResults", result);
+    localStorage.removeItem("theResults");
+
+    document.getElementById("form-section").remove();
+  } else {
+    alert("enter your name");
+  }
+};
+
+// results
+const renderResults = () => {
+  console.log("results");
+};
+// TODO render the submit form
