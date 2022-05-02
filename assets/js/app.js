@@ -172,3 +172,41 @@ const renderResults = () => {
   console.log("results");
 };
 // TODO render the submit form
+
+const questionsRenders = () => {
+  // get current  question
+  const currentQuestion = questionIndex[questionIndex];
+  // questions
+
+  console.log("questions", currentQuestion);
+
+  // create section
+  const section = document.createElement("question-section");
+  section.setAttribute("class", "question-section");
+
+  // create the h2 element
+  const h2 = document.createElement("question-banner");
+  // set the  h2
+  section.setAttribute("class", "question-banner");
+  // set the text content in the h2
+  h2.textContent = `${questionIndex + 1}. ${currentQuestion.question}`;
+
+  // create the ul and append the answers
+  const ul = document.createElement("the-list");
+  // add a class attribute
+  ul.setAttribute("class", "the-list");
+
+  // create li
+  const li1 = document.createElement("list-items");
+  li1.setAttribute("class", "list-items");
+  li1.setAttribute("data-value", currentQuestion.options[0]);
+  li1.textContent = currentQuestion.options[0];
+  // append child list item to the parent which is the ul
+
+  const li2 = document.createElement("list-items");
+  li2.setAttribute("class", "list-items");
+  li2.setAttribute("data-value", currentQuestion.options[1]);
+  li2.textContent = currentQuestion.options[1];
+
+  //TODO the li3 and append the ul to the section
+};
