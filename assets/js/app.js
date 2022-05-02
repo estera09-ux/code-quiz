@@ -8,6 +8,19 @@ const timerSpan = document.getElementById("span-timer");
 const theMain = document.getElementById("main");
 const form = document.getElementById("form-section");
 
+const handleStartBtn = () => {
+  startQuiz.load();
+  createSection();
+
+  // initialize local storage
+  initializeLocalStorage();
+  //render question
+  renderQuestions();
+};
+
+// start button
+startButton.addEventListener("click", handleStartBtn);
+
 let time = 60;
 let completeQuiz = false;
 
@@ -209,4 +222,17 @@ const questionsRenders = () => {
   li2.textContent = currentQuestion.options[1];
 
   //TODO the li3 and append the ul to the section
+  const li3 = document.createElement("list");
+  li3.setAttribute("class", "list-items");
+  li3.setAttribute("data-value", currentQuestion.questions[2]);
+  li3.textContent = currentQuestion.questions[2];
+
+  ul.append(li1, li2, li3);
+
+  // append h2 and the ul to the section
+  section.append(h2, ul);
+  // append the section to the document
+  main.append(section);
+  // add event listener
+  section.addEventListener("click", handleStartBtn);
 };
