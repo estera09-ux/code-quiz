@@ -1,36 +1,51 @@
 // target the timer span
-const timerSection = document.getElementById("timer-section");
-const questionLine = document.querySelector(".banner");
-const sectionQuestion = document.getElementById("question-section");
+const quizStart = document.getElementById("quiz-start");
+const startButton = document.getElementById("start-btn");
 const listAnswer = document.getElementById("list");
-const time = document.getElementById("timer");
+const questionsList = document.getElementById("question-section");
+const questionSection = document.getElementById("questions");
+const timerSpan = document.getElementById("span-timer");
+const theMain = document.getElementById("main");
+const form = document.getElementById("form-section");
 
-let timerSpan = 100;
+let time = 60;
+let completeQuiz = false;
 
 const handleStartButtonClick = () => {
   const updateTimer = () => {
-    timerSpan -= 1;
-    // increment timer by 1
-    time.textContent = timerSpan;
-    //set to new timer value
-    // timerSpan.textContent = timer;
-    //check if timer is equal to 10
-    if (timerSpan === 0) {
-      clearInterval(timerId);
+    //increase the timer by 1
+    time -= 1;
+
+    // set text to new timer
+    timerSpan.textContent = time;
+
+    // check if timer is 0
+    if (time === 0) {
+      clearInterval(countDown);
     }
   };
-  const timerId = setInterval(updateTimer, 1000);
-  console.log(timerId);
+
+  // start the timer
+  const countDown = setInterval(updateTimer, 1000);
+  console.log(countDown);
 };
 
-// addEventListener function
-time.addEventListener("click", handleStartButtonClick);
+// adding the event listener function
+startButton.addEventListener("click", handleStartButtonClick);
 
-document.getElementById("start-btn").addEventListener("click", () => {
-  timerSpan -= 5;
+document.getElementById("span-timer").addEventListener("click", () => {
+  time -= 5;
 });
 
-// const startQuiz = document.getElementById("start");
+// addEventListener function
+// time.addEventListener("click", handleStartButtonClick);
+
+// document.getElementById("start-btn").addEventListener("click", () => {
+// timerSpan -= 5;
+// });
+//
+
+const startQuiz = document.getElementById("start");
 // target the button
 const buttonStart = document.getElementById("start-btn");
 const main = document.getElementById("main");
